@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-backend-api
+  labels:
+    app: ms-backend-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-api
+  template:
+    metadata:
+      labels:
+        app: backend-api
+    spec:
+      containers:
+        - name: backend
+          env:            
+          - name: MONGOHOST
+            valueFrom:
+              secretKeyRef:
+                name: mongodb
+                key: mongoHost
+          - name: MONGOUSER
+            valueFrom:
+              secretKeyRef:
+                name: mongodb
+                key: mongoUser
+          - name: MONGOPASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongodb
+                key: mongoPassword
+          resources: # I did not give resource limit to see how they are scaling
+            requests:
+              memory: "256Mi"
+              cpu: "125m"
+          image: yahyaozturk/backend-api
+          imagePullPolicy: Always
+          livenessProbe:
+            httpGet:
+              path: /api/v1/health
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          ports:
+            - containerPort: 8080
+              name: rest-port
+              protocol: TCP
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-backend-api-svc
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+  selector:
+    app: ms-backend-api
+---
+

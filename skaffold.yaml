@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2alpha2
+kind: Config
+metadata:
+  name: basic-api-backend
+build:
+  artifacts:
+  - image: yahyaozturk/backend-api
+  local:
+    push: true
+deploy:
+  kubectl:
+    manifests:
+    - deployment/k8s-deployment.yaml

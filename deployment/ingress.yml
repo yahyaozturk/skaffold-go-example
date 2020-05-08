@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: api-ingress
+spec:
+  rules:
+  - host: backend.<Ingress IP>.nip.io
+    http:
+      paths:
+      - backend:
+          serviceName: ms-backend-api-svc
+          servicePort: 80
+        path: /

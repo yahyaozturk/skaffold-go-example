@@ -1,0 +1,7 @@
+go.mod
+go.sum
+README.md
+skaffold.yml
+basic-loadtest.jmx
+/setup
+/deployment
