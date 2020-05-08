@@ -74,7 +74,7 @@ OR
 
 make sure have docker installed (https://docs.docker.com/install/)
 ```
-docker run -itd -p 8080:8080 --env MONGOHOST=<replace> --env MONGOUSER=<replace> --env MONGOPASSWORD=<replace> beat/basic-api
+docker run -itd -p 8080:8080 --env MONGOHOST=<replace> --env MONGOUSER=<replace> --env MONGOPASSWORD=<replace> yahyaozturk/basic-api
 ```
 
 
