@@ -1,19 +1,19 @@
-# basic-api-backend
+# skaffold-go-example
 
-This is a demo application for skaffold usage.
+This is a demo basic api application for skaffold usage. Records to be saved in Mongo DB.
 
 # API definition
 
 Build an application that serves the following HTTP-based APIs :
 
-Description: Saves/updates the given user's name and date of birth in the database
-Request: PUT /hello/Morty { "dateOfBirth": "2000-01-01" }
-Response: 204 No Content
+**Description:** Saves/updates the given user's name and date of birth in the database
+**Request:** PUT /hello/Morty { "dateOfBirth": "2000-01-01" }
+**Response:** 204 No Content
 
 
-Description: Return a hello/birthday message for the given user
-Request: GET /hello/Morty
-Response: 200 OK
+**Description:** Return a hello/birthday message for the given user
+**Request:** GET /hello/Morty
+**Response:** 200 OK
 * when Morty’s birthday is in 5 days:
 { "message": "Hello, Morty! Your birthday is in 5 days" }
 * when Morty's birthday is today:
