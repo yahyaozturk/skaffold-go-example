@@ -14,9 +14,9 @@ Response: 204 No Content
 Description: Return a hello/birthday message for the given user
 Request: GET /hello/Morty
 Response: 200 OK
-a. when Morty’s birthday is in 5 days:
+* when Morty’s birthday is in 5 days:
 { "message": "Hello, Morty! Your birthday is in 5 days" }
-b. when Morty's birthday is today:
+* when Morty's birthday is today:
 { "message": "Hello, Morty! Happy birthday" }
 
 ## Package, Build App 
